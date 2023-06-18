@@ -101,13 +101,13 @@ void ShowTaskNumber(int numberOfTask)
 ShowTaskNumber(1);
 int userNumber = GetCheckedNumber("Задайте натуральное число от 1", "123456789");
 int numberTill = 1;
-string ShowNumbers(int numberFromBiggest, int numberToSmallest)
+string ShowNumbers(int numbertoBiggest, int numberToSmallest)
 {
-    if (numberFromBiggest == numberToSmallest)
+    if (numbertoBiggest == numberToSmallest)
     {
         return numberToSmallest.ToString();
     }
-    return numberFromBiggest + ", " + ShowNumbers(numberFromBiggest - 1, numberToSmallest);
+    return numbertoBiggest + ", " + ShowNumbers(numbertoBiggest - 1, numberToSmallest);
 }
 Console.WriteLine(ShowNumbers(userNumber, numberTill));
 // ____________________________________________________
@@ -127,19 +127,19 @@ while (numberM < 0 & numberN < 0 | numberM > numberN | numberM == numberN)
     numberM = GetOkNumInclDouble(detailedInfo + "Задайте число M", allowdChars, true);
     numberN = GetOkNumInclDouble(detailedInfo + "Задайте число N", allowdChars, false);
 }
-int SumOfNumbersInInterval(int fromSmallest, int fromBiggest)
+int SumOfNumbersInInterval(int fromSmallest, int toBiggest)
 {
-    if (fromSmallest == fromBiggest)
+    if (fromSmallest == toBiggest)
     {
-        return fromBiggest;
+        return toBiggest;
     }
     if (fromSmallest < 0)
     {
-        return SumOfNumbersInInterval(fromSmallest + 1, fromBiggest); //отрицательные числа не суммируем
+        return SumOfNumbersInInterval(fromSmallest + 1, toBiggest); //отрицательные числа не суммируем
     }
     else
     {
-        return fromSmallest + SumOfNumbersInInterval(fromSmallest + 1, fromBiggest);
+        return fromSmallest + SumOfNumbersInInterval(fromSmallest + 1, toBiggest);
     }
 }
 System.Console.WriteLine("Сумма натуральных чисел нашего отрезка от М до N:\nравна " +
